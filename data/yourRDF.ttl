@@ -1,11 +1,32 @@
-@prefix ns1: <https://example.org/> .
+@prefix ns1: <https://example.org/library/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-ns1:whale a ns1:Mammalia ;
-    rdfs:label "whale" ;
-    ns1:eats ns1:crocodile .
+ns1:Author a rdfs:Class ;
+    rdfs:label "Author" ;
+    rdfs:subClassOf ns1:Resource .
 
-ns1:Amphibia rdfs:subClassOf ns1:Animalia .
+ns1:Book a rdfs:Class ;
+    rdfs:label "Book" ;
+    rdfs:subClassOf ns1:Resource .
 
-ns1:crocodile a ns1:Amphibia .
+ns1:Member a rdfs:Class ;
+    rdfs:label "Member" .
+
+ns1:Book1 a ns1:Book ;
+    rdfs:label "The Hobbit" ;
+    ns1:loanedBy ns1:Member1 ;
+    ns1:writtenBy ns1:Author1 .
+
+ns1:loanedBy a rdf:Property ;
+    rdfs:label "loaned by" .
+
+ns1:writtenBy a rdf:Property ;
+    rdfs:label "written by" .
+
+ns1:Author1 a ns1:Author ;
+    rdfs:label "J.R.R. Tolkien" .
+
+ns1:Member1 a ns1:Member ;
+    rdfs:label "Sanne" .
 
